@@ -1,0 +1,29 @@
+P2P Solar Energy Trading - Documentation
+
+Step 01: Registration of Producer and Consumer
+Each user register in BB eithe+r using BB.registerAsConsumer() for EOA_C and BB.registerAsProducer() for EOA_P.
+
+Step 02: Producer will set Energy Rate and activate supply status
+Interested producer p ∈ EOA_P, will set their energy rate R_p (in Eth/kWh) using BB.setEnergyRate(). 
+Producer will activate supply status using BB.activate() by feeding the W_p, T_p values
+
+
+Step 03: Consumer deposits some eth into BB
+Every Interested c ∈ EOA_C will deposit desired eth into BB.
+
+Step 04: Consumer request for energy from EOA_P
+Consumer c ∈ EOA_C, can able to choose the producer from EOA_P(by looking W_p , T_p value) to get solar energy 
+Consumer will also provide W_c, t_c value to chosen EOA_P.
+
+Step 05 : Request approve or deny by producer
+If producer want to approve the request made by consumer to full fill his/her demand , then BB.accept() followed by the physical transmission of solar energy using electric cables.
+
+Step 06: Energy data M_p feeding into Blockchain directly
+The energy consumer value M_p, will be directly feed into BB in certain interval of time.
+
+Step 07: Energy need fulfilled and billing 
+As the energy demand of consumer will be fulfilled by producer, BB will automatically trigger BB.settlePayment() (the bill settlement phase).
+Based on the M_p value , R_p, total billing amount is calculated.
+
+Step 08: Producer gets the money
+As the bill is generated, the money is transferred from BB to respective producer p ∈ EOA_P.
