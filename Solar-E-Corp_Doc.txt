@@ -1,7 +1,57 @@
 P2P Solar Energy Trading - Documentation
 
-Step 01: Registration of Producer and Consumer
-Each user register in BB eithe+r using BB.registerAsConsumer() for EOA_C and BB.registerAsProducer() for EOA_P.
+Under project "Solar-E-Corp"
+
+Folder "node modules": standard.
+Folder  "public": standard.
+
+Folder "src"
+   - sub-folder "components": This folder contains source files for designing the website.
+      --- folder "dashboard": This is used for designing consumer and producer dashboards.
+      --- All other files: for designing various parts of the website
+   - sub-folder "contract": This folder contains the source file Contract.sol which contains the 
+      smart-contract.
+   - all other files were automatically generated. 
+     --- App.css: Standard.
+     --- App.jsx: This renders the files in the "components". It connects website
+         with the blockchain.
+     --- index.css: standard with some tailwind configurations
+     --- main.jsx: This renders App.jsx
+     --------------------------
+
+
+Our main focus is Contract.sol. The critical data and critical code will be written in this file. 
+Non-critical data and code will be moved to the server side.  "Critical" means 
+those data and code a hacker wishes to change for financial gains.  
+
+1. 
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Protocol execution:
+
+Step 01: Registration of Producer and Consumer:
+
+Producer (or Consumer) opens GUI 
+Each user registers in Blockchian either using BB.registerAsConsumer() for EOA_C or BB.registerAsProducer() for EOA_P.
 
 Step 02: Producer will set Energy Rate and activate supply status
 Interested producer p ∈ EOA_P, will set their energy rate R_p (in Eth/kWh) using BB.setEnergyRate(). 
@@ -11,12 +61,13 @@ Producer will activate supply status using BB.activate() by feeding the W_p, T_p
 Step 03: Consumer deposits some eth into BB
 Every Interested c ∈ EOA_C will deposit desired eth into BB.
 
-Step 04: Consumer request for energy from EOA_P
-Consumer c ∈ EOA_C, can able to choose the producer from EOA_P(by looking W_p , T_p value) to get solar energy 
+Step 04: Consumer requests for energy from EOA_P
+Consumer c ∈ EOA_C, can be able to choose the producer from EOA_P (by looking W_p , T_p value) to get solar energy. 
 Consumer will also provide W_c, t_c value to chosen EOA_P.
 
 Step 05 : Request approve or deny by producer
-If producer want to approve the request made by consumer to full fill his/her demand , then BB.accept() followed by the physical transmission of solar energy using electric cables.
+If producer wants to approve the request made by consumer to fulfil  his/her demand, then BB.accept() followed by 
+the physical transmission of solar energy using electric cables.
 
 Step 06: Energy data M_p feeding into Blockchain directly
 The energy consumer value M_p, will be directly feed into BB in certain interval of time.
