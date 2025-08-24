@@ -46,7 +46,7 @@ those data and code a hacker wishes to change for financial gains.
 
 
 
-Protocol execution:
+Solar trading Process:
 
 Step 01: Registration of Producer and Consumer:
 

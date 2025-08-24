@@ -73,12 +73,12 @@ contract Contract {
         producers[msg.sender].rate = _rate;
     }
     
-    function activateSupply() public {
+    function activateSupply() external onlyProducer {
         producers[msg.sender].supplyActive = true;
     }
     
-    function deactivateSupply(address _producer) public {
-        producers[_producer].supplyActive = false;
+    function deactivateSupply() external onlyProducer {
+        producers[msg.sender].supplyActive = false;
     }
     
     function isSupplyActive(address producer) public view returns (bool) {
@@ -145,9 +145,6 @@ contract Contract {
             timestamp: block.timestamp
         }));
 
-        withdrawConsumerBalance(request.consumer);
-        withdrawProducerBalance(producer);
-        deactivateSupply(producer);
         
     }
     
@@ -222,15 +219,15 @@ contract Contract {
         return consumers[consumer].balance;
     }
     
-    function withdrawConsumerBalance(address _consumer) public {
-        uint256 amount = consumers[_consumer].balance;
+    function withdrawBalance() external onlyConsumer {
+        uint256 amount = consumers[msg.sender].balance;
         require(amount > 0, "No balance to withdraw");
         consumers[msg.sender].balance = 0;
         payable(msg.sender).transfer(amount);
     }
     
-    function withdrawProducerBalance(address _producer) public {
-        uint256 amount = producers[_producer].balance;
+    function withdrawProducerBalance() external onlyProducer {
+        uint256 amount = producers[msg.sender].balance;
         require(amount > 0, "No balance to withdraw");
         producers[msg.sender].balance = 0;
         payable(msg.sender).transfer(amount);
